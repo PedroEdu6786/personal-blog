@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react'
-import { handMotion } from '../../motion/motionVariants'
-import { MotionBox } from '../../motion/motionComponents'
+import { handMotion } from '../../../motion/motionVariants'
+import { MotionBox } from '../../../motion/motionComponents'
 
 const Emoji = ({ label = '', symbol, ...rest }) => {
   return (
