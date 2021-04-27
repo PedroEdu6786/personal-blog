@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Heading,
   HStack,
   Stack,
@@ -54,6 +55,22 @@ const Home = () => {
             </WrapItem>
           ))}
         </Wrap>
+      </Box>
+
+      {/* ---------------- POSTS ---------------- */}
+      <Box id="footer" as="section" w="100%" pt="5rem">
+        <HStack
+          w="100%"
+          p="2rem"
+          bgColor="portfolio.darkBlue"
+          color="portfolio.white"
+          fontWeight="semibold"
+          justify="center"
+        >
+          <Text>Made with </Text>
+          <Emoji symbol="❤️" />
+          <Text>by Pedro Cruz</Text>
+        </HStack>
       </Box>
     </Stack>
   )
