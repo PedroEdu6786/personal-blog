@@ -1,8 +1,8 @@
 import { Text } from '@chakra-ui/layout'
 
-const Date = ({ children }) => {
+const Date = ({ children, ...rest }) => {
   return (
-    <Text color="portfolio.darkBlue" fontWeight="semibold">
+    <Text color="portfolio.darkBlue" fontWeight="semibold" {...rest}>
       {children}
     </Text>
   )

@@ -1,8 +1,8 @@
 import { Heading } from '@chakra-ui/layout'
 
-const PostTitle = ({ children }) => {
+const PostTitle = ({ children, ...rest }) => {
   return (
-    <Heading as="h3" size="lg">
+    <Heading as="h3" size="lg" {...rest}>
       {children}
     </Heading>
   )

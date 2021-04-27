@@ -1,14 +1,16 @@
-import { Box, Heading, HStack, Stack, Text } from '@chakra-ui/layout'
+import {
+  Box,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  Wrap,
+  WrapItem,
+} from '@chakra-ui/layout'
 import Emoji from '../src/components/atoms/HomePage/Emoji'
+import MainPost from '../src/components/molecules/HomePage/MainPost'
 import Post from '../src/components/molecules/HomePage/Post'
-
-const title = 'Lorem ipsum dolor sit amet, consectetur'
-const description =
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, iusto! Consectetur soluta aut error possimus quis enim'
-
-const date = 'March 05, 2021'
-
-const readingTime = '5'
+import { posts } from '../src/constants/posts'
 
 const Home = () => {
   return (
@@ -41,14 +43,17 @@ const Home = () => {
       </Box>
 
       {/* ---------------- POSTS ---------------- */}
-      <Box id="posts" as="section" pt="7rem" w="100%">
-        <Post
-          isMostRecent
-          title={title}
-          description={description}
-          date={date}
-          readingTime={readingTime}
-        />
+      <Box id="posts" as="section" pt="7rem" w="100%" px="2rem">
+        {/* ---------------- LATEST POST ---------------- */}
+        <MainPost isMostRecent {...posts[0]} />
+        {/* ---------------- OTHER POSTS ---------------- */}
+        <Wrap mt="4rem" spacing="2rem">
+          {posts.map((post) => (
+            <WrapItem key={post.id}>
+              <Post {...post} />
+            </WrapItem>
+          ))}
+        </Wrap>
       </Box>
     </Stack>
   )
