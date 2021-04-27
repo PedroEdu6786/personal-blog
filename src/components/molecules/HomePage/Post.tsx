@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { HStack, Stack, Text } from '@chakra-ui/layout'
+import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
 import { FiClock } from 'react-icons/fi'
 import Date from '../../atoms/HomePage/Date'
 import PostImage from '../../atoms/HomePage/PostImage'
@@ -7,26 +7,42 @@ import PostTitle from '../../atoms/HomePage/PostTitle'
 
 const Post = ({ title, date, readingTime, img }) => {
   return (
-    <HStack m="auto" spacing="1rem">
+    <Stack
+      m="auto"
+      spacing="1rem"
+      align="center"
+      direction={{ base: 'row', md: 'column' }}
+    >
       {/* ---------------- POST IMAGE ---------------- */}
-      <PostImage
-        src={img}
-        alt="post-image"
-        width={'215'}
-        height={'200px'}
-        borderRadius="10px"
-      />
+      <Box
+        w={{ base: '150px', md: '315px' }}
+        h={{ base: '100px', md: '200px' }}
+        pos="relative"
+      >
+        <PostImage
+          src={img}
+          alt="post-image"
+          layout="fill"
+          borderRadius="10px"
+        />
+      </Box>
 
       {/* ---------------- POST INFO ---------------- */}
-      <Stack spacing=".2rem">
-        <Date fontSize=".9rem">{date}</Date>
-        <PostTitle fontSize="1.15rem">{title}</PostTitle>
-        <HStack color="portfolio.darkGray" fontWeight="semibold">
-          <Icon as={FiClock} fontSize=".9rem" />
-          <Text fontSize=".9rem">{readingTime} min read</Text>
+      <Stack spacing=".2rem" maxW="20rem">
+        <Date fontSize={{ base: '.9rem', md: '1.125rem' }}>{date}</Date>
+        <PostTitle fontSize={{ base: '1.15rem', md: '1.5rem' }}>
+          {title}
+        </PostTitle>
+        <HStack
+          color="portfolio.darkGray"
+          fontWeight="semibold"
+          fontSize={{ base: '.9rem', md: '1.125rem' }}
+        >
+          <Icon as={FiClock} />
+          <Text>{readingTime} min read</Text>
         </HStack>
       </Stack>
-    </HStack>
+    </Stack>
   )
 }
 
