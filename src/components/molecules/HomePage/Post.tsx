@@ -4,7 +4,7 @@ import { FiClock } from 'react-icons/fi'
 import { Post as IPost } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostImage from '../../atoms/HomePage/PostImage'
-import PostTitle from '../../atoms/HomePage/PostTitle'
+import PostTitle from '../../atoms/Shared/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
 
 const Post = ({ id: blogId, title, date, readingTime, img }: IPost) => {

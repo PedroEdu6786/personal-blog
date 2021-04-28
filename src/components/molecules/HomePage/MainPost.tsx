@@ -1,11 +1,9 @@
-import Icon from '@chakra-ui/icon'
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
-import { FiClock } from 'react-icons/fi'
 import { Post } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
-import PostTitle from '../../atoms/HomePage/PostTitle'
+import PostTitle from '../../atoms/Shared/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
 import ReadTime from '../../atoms/Shared/ReadTime'
 
