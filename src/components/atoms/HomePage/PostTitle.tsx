@@ -2,7 +2,7 @@ import { Heading } from '@chakra-ui/layout'
 
 const PostTitle = ({ children, ...rest }) => {
   return (
-    <Heading as="h3" size="lg" {...rest}>
+    <Heading as="h3" {...rest}>
       {children}
     </Heading>
   )

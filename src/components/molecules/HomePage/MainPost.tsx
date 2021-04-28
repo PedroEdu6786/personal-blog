@@ -1,16 +1,26 @@
 import Icon from '@chakra-ui/icon'
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
 import { FiClock } from 'react-icons/fi'
+import { Post } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/HomePage/PostTitle'
 
-const MainPost = ({ title, description, date, readingTime, img }) => {
+const MainPost = ({ title, description, date, readingTime, img }: Post) => {
   return (
-    <Stack m="auto" spacing="1rem" direction={{ base: 'column', lg: 'row' }}>
+    <Stack
+      m="auto"
+      spacing={{ base: '1rem', lg: '1.75rem' }}
+      direction={{ base: 'column', lg: 'row' }}
+    >
       {/* ---------------- POST IMAGE ---------------- */}
-      <Box minW="200px" h={{ base: '200px', md: '300px' }} pos="relative">
+      <Box
+        minW="200px"
+        w={{ lg: '1000px' }}
+        h={{ base: '200px', md: '300px', lg: '325px' }}
+        pos="relative"
+      >
         <PostImage
           src={img}
           alt="post-image"
@@ -20,9 +30,15 @@ const MainPost = ({ title, description, date, readingTime, img }) => {
       </Box>
 
       {/* ---------------- POST INFO ---------------- */}
-      <Stack spacing=".5rem">
-        <Date fontSize={{ md: '1.25rem' }}>{date}</Date>
-        <PostTitle>{title}</PostTitle>
+      <Stack
+        spacing={{ base: '.5rem', lg: '.75rem' }}
+        fontSize={{ md: '1.25rem', lg: '1.5rem' }}
+        justify="space-between"
+      >
+        <Date>{date}</Date>
+        <PostTitle fontSize={{ base: '1.5rem', md: '2rem', lg: '2.25rem' }}>
+          {title}
+        </PostTitle>
         <PostDescription>{description}</PostDescription>
         <HStack
           color="portfolio.darkGray"

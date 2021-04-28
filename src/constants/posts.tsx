@@ -1,11 +1,4 @@
-interface Post {
-  id: string
-  title: string
-  description: string
-  img: string
-  date: string
-  readingTime: string
-}
+import { Post } from '../interfaces/Post'
 
 export const posts: Post[] = [
   {

@@ -1,21 +1,22 @@
 import Icon from '@chakra-ui/icon'
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
 import { FiClock } from 'react-icons/fi'
+import { Post as IPost } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/HomePage/PostTitle'
 
-const Post = ({ title, date, readingTime, img }) => {
+const Post = ({ title, date, readingTime, img }: IPost) => {
   return (
     <Stack
       m="auto"
       spacing="1rem"
-      align="center"
+      align={{ base: 'center', lg: 'flex-start' }}
       direction={{ base: 'row', md: 'column' }}
     >
       {/* ---------------- POST IMAGE ---------------- */}
       <Box
-        w={{ base: '150px', md: '315px' }}
+        w={{ base: '150px', md: '290px', xl: '340px' }}
         h={{ base: '100px', md: '200px' }}
         pos="relative"
       >

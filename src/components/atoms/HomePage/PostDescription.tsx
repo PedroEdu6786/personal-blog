@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/layout'
 
-const PostDescription = ({ children }) => {
-  return <Text fontSize={{ md: '1.25rem' }}>{children}</Text>
+const PostDescription = ({ children, ...rest }) => {
+  return <Text {...rest}>{children}</Text>
 }
 
 export default PostDescription

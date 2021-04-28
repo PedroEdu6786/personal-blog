@@ -12,7 +12,13 @@ const Header = () => {
       w="100%"
       bgColor="portfolio.gray"
     >
-      <HStack align="center" justify="space-between" p="2rem">
+      <HStack
+        m="auto"
+        maxW="1300px"
+        align="center"
+        justify="space-between"
+        p="2rem"
+      >
         {/* ---------------- LOGO ---------------- */}
         <HStack align="center">
           <Emoji symbol="👋🏻" />
@@ -22,7 +28,12 @@ const Header = () => {
         </HStack>
 
         {/* ---------------- NAVBAR ---------------- */}
-        <HStack fontWeight="bold" fontSize={{ base: '1rem', md: '1.25rem' }}>
+        <HStack
+          fontWeight="bold"
+          w={{ sm: '12rem', md: '15rem' }}
+          justify="space-between"
+          fontSize={{ base: '1rem', md: '1.25rem' }}
+        >
           <Text>Home</Text>
           <Text>My Portfolio</Text>
         </HStack>

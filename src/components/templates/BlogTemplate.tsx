@@ -9,7 +9,12 @@ const BlogTemplate = ({ children }) => {
       <Header />
 
       {/* ---------------- PAGE CONTENT ---------------- */}
-      <Box w="100%" px="2rem">
+      <Box
+        w="100%"
+        py={{ base: '7rem', md: '9rem', lg: '12rem' }}
+        px={{ base: '2rem', md: '3rem', lg: '5rem' }}
+        maxW="1300px"
+      >
         {children}
       </Box>
 
