@@ -1,16 +1,19 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from 'next/app'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
+import { AppWrapper } from '../src/context/state'
 import theme from '../src/theme/theme'
 import Fonts from '../src/theme/components/Fonts'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <CSSReset />
-      <Fonts />
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AppWrapper>
+      <ChakraProvider theme={theme}>
+        <CSSReset />
+        <Fonts />
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </AppWrapper>
   )
 }
 
