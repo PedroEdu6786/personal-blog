@@ -7,6 +7,7 @@ import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/HomePage/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
+import ReadTime from '../../atoms/Shared/ReadTime'
 
 const MainPost = ({
   id: blogId,
@@ -64,10 +65,7 @@ const MainPost = ({
             fontSize={{ md: '1.15rem' }}
           >
             <Text>Read more</Text>
-            <HStack>
-              <Icon as={FiClock} fontSize={{ base: '1.25rem', md: '1.5rem' }} />
-              <Text>{readingTime} min read</Text>
-            </HStack>
+            <ReadTime readingTime={readingTime} />
           </HStack>
         </LinkR>
       </Stack>
