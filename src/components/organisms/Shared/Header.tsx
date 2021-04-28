@@ -1,5 +1,6 @@
 import { Box, Heading, HStack, Text } from '@chakra-ui/layout'
 import Emoji from '../../atoms/HomePage/Emoji'
+import LinkR from '../../atoms/Shared/LinkR'
 
 const Header = () => {
   return (
@@ -20,12 +21,14 @@ const Header = () => {
         p="2rem"
       >
         {/* ---------------- LOGO ---------------- */}
-        <HStack align="center">
-          <Emoji symbol="👋🏻" />
-          <Heading as="h3" fontSize={{ base: '1rem', md: '1.25rem' }}>
-            Pedro Cruz
-          </Heading>
-        </HStack>
+        <LinkR href="/">
+          <HStack align="center">
+            <Emoji symbol="👋🏻" />
+            <Heading as="h3" fontSize={{ base: '1rem', md: '1.25rem' }}>
+              Pedro Cruz
+            </Heading>
+          </HStack>
+        </LinkR>
 
         {/* ---------------- NAVBAR ---------------- */}
         <HStack
@@ -34,8 +37,12 @@ const Header = () => {
           justify="space-between"
           fontSize={{ base: '1rem', md: '1.25rem' }}
         >
-          <Text>Home</Text>
-          <Text>My Portfolio</Text>
+          <LinkR href="/">
+            <Text>Home</Text>
+          </LinkR>
+          <LinkR href="/">
+            <Text>My Portfolio</Text>
+          </LinkR>
         </HStack>
       </HStack>
     </Box>

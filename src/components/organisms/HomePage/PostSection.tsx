@@ -3,16 +3,18 @@ import { posts } from '../../../constants/posts'
 import MainPost from '../../molecules/HomePage/MainPost'
 import Post from '../../molecules/HomePage/Post'
 
+const newestPost = posts.shift()
+
 const PostSection = () => {
   return (
     <Box id="posts" as="section">
       {/* ---------------- LATEST POST ---------------- */}
-      <MainPost {...posts[0]} />
+      <MainPost {...newestPost} />
 
       {/* ---------------- OTHER POSTS ---------------- */}
       <SimpleGrid
         mt={{ base: '4rem', md: '6rem', lg: '8rem' }}
-        columns={[1, 2, null, 3]}
+        columns={[1, null, 2, 3]}
         justify="space-between"
         spacing={{ base: '2rem', lg: '3rem' }}
       >
