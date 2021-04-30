@@ -41,27 +41,23 @@ const MainPost = ({ uuid: blogId, content, published_at: date }) => {
         fontSize={{ md: '1.25rem', lg: '1.5rem' }}
         justify="space-between"
       >
-        <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <PublishDate>{date}</PublishDate>
-        </LinkR>
+        <PublishDate>{date}</PublishDate>
         <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
           <PostTitle fontSize={{ base: '1.5rem', md: '2rem', lg: '2.25rem' }}>
             {title}
           </PostTitle>
         </LinkR>
-        <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <PostDescription>{description}</PostDescription>
-        </LinkR>
-        <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <HStack
-            color="portfolio.darkGray"
-            fontWeight="semibold"
-            fontSize={{ md: '1.15rem' }}
-          >
+        <PostDescription>{description}</PostDescription>
+        <HStack
+          color="portfolio.darkGray"
+          fontWeight="semibold"
+          fontSize={{ md: '1.15rem' }}
+        >
+          <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
             <Text>Read more</Text>
-            <ReadTime readingTime={read_time} />
-          </HStack>
-        </LinkR>
+          </LinkR>
+          <ReadTime readingTime={read_time} />
+        </HStack>
       </Stack>
     </Stack>
   )

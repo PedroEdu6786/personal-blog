@@ -32,6 +32,7 @@ const Header = () => {
 
         {/* ---------------- NAVBAR ---------------- */}
         <HStack
+          as="nav"
           fontWeight="bold"
           w={{ sm: '12rem', md: '15rem' }}
           justify="space-between"

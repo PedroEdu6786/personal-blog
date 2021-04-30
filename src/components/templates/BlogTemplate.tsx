@@ -4,7 +4,7 @@ import Header from '../organisms/Shared/Header'
 
 const BlogTemplate = ({ children }) => {
   return (
-    <Stack align="center">
+    <Stack as="main" align="center">
       {/* ---------------- HEADER ---------------- */}
       <Header />
 

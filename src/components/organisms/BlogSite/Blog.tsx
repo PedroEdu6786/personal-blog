@@ -4,11 +4,14 @@ import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import ReadTime from '../../atoms/Shared/ReadTime'
+import Storyblok from '../../../lib/storyblok'
 
 const Blog = ({ content, published_at: date }) => {
   const { description, read_time, title, image, bio } = content
 
   const SRC = `http:${image}`
+
+  const long_text = Storyblok.richTextResolver.render(bio)
 
   return (
     <Box as="section">
@@ -33,37 +36,10 @@ const Blog = ({ content, published_at: date }) => {
           />
         </Box>
       </Stack>
-      <Stack spacing="1rem" fontSize={{ md: '1.25rem' }}>
-        <PostDescription fontWeight="semibold">{description}</PostDescription>
-        <PostDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-          adipisci ad omnis minima accusamus veniam consequuntur maxime
-          perspiciatis voluptatibus, illum vitae corrupti reprehenderit ducimus
-          placeat impedit beatae qui sit quibusdam neque officiis. Amet
-          eligendi, doloribus aliquid magni, cum iste illo alias pariatur totam
-          impedit nisi, sint quos ipsa similique recusandae dolorum mollitia
-          consequuntur blanditiis? Fugit eaque magni laudantium, nulla
-          asperiores quas dolor consequuntur fugiat eum atque animi quaerat
-          minus corrupti quia iusto, et vel nobis rem autem natus ut assumenda
-          explicabo aliquam repellendus! Iure doloribus dolorem ratione nobis
-          minus quam, omnis saepe autem explicabo libero impedit, odit eveniet,
-          totam nam!
-        </PostDescription>
-        <PostDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-          adipisci ad omnis minima accusamus veniam consequuntur maxime
-          perspiciatis voluptatibus, illum vitae corrupti reprehenderit ducimus
-          placeat impedit beatae qui sit quibusdam neque officiis. Amet
-          eligendi, doloribus aliquid magni, cum iste illo alias pariatur totam
-          impedit nisi, sint quos ipsa similique recusandae dolorum mollitia
-          consequuntur blanditiis? Fugit eaque magni laudantium, nulla
-          asperiores quas dolor consequuntur fugiat eum atque animi quaerat
-          minus corrupti quia iusto, et vel nobis rem autem natus ut assumenda
-          explicabo aliquam repellendus! Iure doloribus dolorem ratione nobis
-          minus quam, omnis saepe autem explicabo libero impedit, odit eveniet,
-          totam nam!
-        </PostDescription>
-      </Stack>
+      <PostDescription fontSize={{ md: '1.25rem' }} fontWeight="semibold">
+        {description}
+      </PostDescription>
+      <Box mt="3rem" dangerouslySetInnerHTML={{ __html: long_text }} />s
     </Box>
   )
 }
