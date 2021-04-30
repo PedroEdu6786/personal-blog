@@ -1,11 +1,9 @@
 import { Box, SimpleGrid } from '@chakra-ui/layout'
-import { useAppContext } from '../../../context/state'
 import MainPost from '../../molecules/HomePage/MainPost'
 import Post from '../../molecules/HomePage/Post'
 
-const PostSection = () => {
-  const theme = useAppContext()
-  const [newestPost, ...posts] = theme
+const PostSection = ({ data: blogs }) => {
+  const [newestPost, ...posts] = blogs
 
   return (
     <Box id="posts" as="section">

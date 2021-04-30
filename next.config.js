@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['via.placeholder.com'],
+    domains: ['a.storyblok.com'],
   },
 }

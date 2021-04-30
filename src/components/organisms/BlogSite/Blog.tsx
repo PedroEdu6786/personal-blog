@@ -5,8 +5,11 @@ import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import ReadTime from '../../atoms/Shared/ReadTime'
 
-const Blog = ({ selectedPost }) => {
-  const { title, description, img, date, readingTime } = selectedPost
+const Blog = ({ content, published_at: date }) => {
+  console.log(content)
+  const { description, read_time, title, image, bio } = content
+
+  const SRC = `http:${image}`
 
   return (
     <Box as="section">
@@ -14,17 +17,17 @@ const Blog = ({ selectedPost }) => {
         <PostTitle>{title}</PostTitle>
         <HStack>
           <Date>{date}</Date>
-          <ReadTime readingTime={readingTime} />
+          <ReadTime readingTime={read_time} />
         </HStack>
         {/* ---------------- POST IMAGE ---------------- */}
         <Box
           minW="200px"
           w="100%"
-          h={{ base: '300px', md: '350px', lg: '325px' }}
+          h={{ base: '300px', md: '350px', lg: '375px' }}
           pos="relative"
         >
           <PostImage
-            src={img}
+            src={SRC}
             alt="post-image"
             layout="fill"
             borderRadius="10px"

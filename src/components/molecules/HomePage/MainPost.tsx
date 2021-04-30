@@ -1,5 +1,4 @@
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
-import { Post } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
@@ -7,14 +6,11 @@ import PostTitle from '../../atoms/Shared/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
 import ReadTime from '../../atoms/Shared/ReadTime'
 
-const MainPost = ({
-  id: blogId,
-  title,
-  description,
-  date,
-  readingTime,
-  img,
-}: Post) => {
+const MainPost = ({ uuid: blogId, content, published_at: date }) => {
+  const { description, read_time, title, image } = content
+
+  const SRC = `http:${image}`
+
   return (
     <Stack
       m="auto"
@@ -31,7 +27,7 @@ const MainPost = ({
       >
         <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
           <PostImage
-            src={img}
+            src={SRC}
             alt="post-image"
             layout="fill"
             borderRadius="10px"
@@ -63,7 +59,7 @@ const MainPost = ({
             fontSize={{ md: '1.15rem' }}
           >
             <Text>Read more</Text>
-            <ReadTime readingTime={readingTime} />
+            <ReadTime readingTime={read_time} />
           </HStack>
         </LinkR>
       </Stack>

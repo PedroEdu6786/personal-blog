@@ -20,7 +20,8 @@
     "**/*.tsx",
     "next.config.js",
     "src/motion/motionVariants.js",
-    "src/motion/motionComponents.js"
+    "src/motion/motionComponents.js",
+    "src/utils/storyblok-service.js"
   ],
   "exclude": ["node_modules"]
 }

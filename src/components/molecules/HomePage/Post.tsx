@@ -1,13 +1,16 @@
 import Icon from '@chakra-ui/icon'
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
 import { FiClock } from 'react-icons/fi'
-import { Post as IPost } from '../../../interfaces/Post'
 import Date from '../../atoms/HomePage/Date'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
 
-const Post = ({ id: blogId, title, date, readingTime, img }: IPost) => {
+const Post = ({ uuid: blogId, content, published_at: date }) => {
+  const { read_time, title, image } = content
+
+  const SRC = `http:${image}`
+
   return (
     <Stack
       spacing="1rem"
@@ -22,7 +25,7 @@ const Post = ({ id: blogId, title, date, readingTime, img }: IPost) => {
           pos="relative"
         >
           <PostImage
-            src={img}
+            src={SRC}
             alt="post-image"
             layout="fill"
             borderRadius="10px"
@@ -47,7 +50,7 @@ const Post = ({ id: blogId, title, date, readingTime, img }: IPost) => {
             fontSize={{ base: '.9rem', md: '1.125rem' }}
           >
             <Icon as={FiClock} />
-            <Text>{readingTime} min read</Text>
+            <Text>{read_time} min read</Text>
           </HStack>
         </LinkR>
       </Stack>

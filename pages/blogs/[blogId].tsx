@@ -1,11 +1,11 @@
 import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
-import { posts } from '../../src/constants/posts'
+import Storyblok from '../../src/lib/storyblok'
 
 const BlogPost = ({ selectedPost }) => {
   return (
     <BlogTemplate>
-      <Blog selectedPost={selectedPost} />
+      <Blog {...selectedPost} />
     </BlogTemplate>
   )
 }
@@ -13,9 +13,18 @@ const BlogPost = ({ selectedPost }) => {
 export default BlogPost
 
 export async function getStaticPaths() {
+  const slug = 'blogs/'
+  const { data } = await Storyblok.get(`cdn/stories/`, {
+    starts_with: slug,
+  })
+
+  const posts = data.stories
+
   const paths = posts.map((post) => ({
-    params: { blogId: post.id.toString() },
+    params: { blogId: post.uuid.toString() },
   }))
+
+  console.log(paths)
 
   return { paths, fallback: false }
 }
@@ -23,7 +32,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { blogId } = params
 
-  let [selectedPost] = posts.filter((post) => post.id === blogId)
+  const { data } = await Storyblok.get(`cdn/stories/blogs/third-post`, {})
+
+  const selectedPost = data.story
 
   return {
     props: { selectedPost },
