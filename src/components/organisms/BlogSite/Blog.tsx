@@ -1,12 +1,11 @@
 import { Box, HStack, Stack } from '@chakra-ui/layout'
-import Date from '../../atoms/HomePage/Date'
+import PublishDate from '../../atoms/HomePage/PublishDate'
 import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import ReadTime from '../../atoms/Shared/ReadTime'
 
 const Blog = ({ content, published_at: date }) => {
-  console.log(content)
   const { description, read_time, title, image, bio } = content
 
   const SRC = `http:${image}`
@@ -16,7 +15,7 @@ const Blog = ({ content, published_at: date }) => {
       <Stack mb={{ base: '2rem', md: '4rem' }} spacing="1rem">
         <PostTitle>{title}</PostTitle>
         <HStack>
-          <Date>{date}</Date>
+          <PublishDate>{date}</PublishDate>
           <ReadTime readingTime={read_time} />
         </HStack>
         {/* ---------------- POST IMAGE ---------------- */}

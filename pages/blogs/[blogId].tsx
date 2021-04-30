@@ -24,15 +24,15 @@ export async function getStaticPaths() {
     params: { blogId: post.uuid.toString() },
   }))
 
-  console.log(paths)
-
   return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
   const { blogId } = params
 
-  const { data } = await Storyblok.get(`cdn/stories/blogs/third-post`, {})
+  const { data } = await Storyblok.get(`cdn/stories/${blogId}`, {
+    find_by: 'uuid',
+  })
 
   const selectedPost = data.story
 

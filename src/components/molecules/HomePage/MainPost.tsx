@@ -1,5 +1,5 @@
 import { Box, HStack, Stack, Text } from '@chakra-ui/layout'
-import Date from '../../atoms/HomePage/Date'
+import PublishDate from '../../atoms/HomePage/PublishDate'
 import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
@@ -42,7 +42,7 @@ const MainPost = ({ uuid: blogId, content, published_at: date }) => {
         justify="space-between"
       >
         <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <Date>{date}</Date>
+          <PublishDate>{date}</PublishDate>
         </LinkR>
         <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
           <PostTitle fontSize={{ base: '1.5rem', md: '2rem', lg: '2.25rem' }}>

@@ -18,8 +18,6 @@ export async function getStaticProps() {
 
   const { data } = await Storyblok.get(`cdn/stories/`, { starts_with: slug })
 
-  console.log(data)
-
   return {
     props: {
       story: data ? data : [],
