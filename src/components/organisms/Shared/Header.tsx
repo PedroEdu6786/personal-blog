@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Text } from '@chakra-ui/layout'
+import { Box, Heading, HStack, Link, Text } from '@chakra-ui/layout'
 import Emoji from '../../atoms/HomePage/Emoji'
 import LinkR from '../../atoms/Shared/LinkR'
 
@@ -41,9 +41,9 @@ const Header = () => {
           <LinkR href="/">
             <Text>Home</Text>
           </LinkR>
-          <LinkR href="/">
+          <Link href="https://pcruz.vercel.app/">
             <Text>My Portfolio</Text>
-          </LinkR>
+          </Link>
         </HStack>
       </HStack>
     </Box>

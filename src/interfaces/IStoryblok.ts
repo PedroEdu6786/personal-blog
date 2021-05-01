@@ -50,4 +50,5 @@ export interface Params {
   filter_query?: string
   per_page?: number
   page?: string
+  find_by?: string
 }

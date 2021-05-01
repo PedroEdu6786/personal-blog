@@ -2,8 +2,8 @@ import { GetStaticProps } from 'next'
 import PostSection from '../src/components/organisms/HomePage/PostSection'
 import MetaHead from '../src/components/organisms/Shared/MetaHead'
 import BlogTemplate from '../src/components/templates/BlogTemplate'
-import { Params, Stories } from '../src/interfaces/IStoryblok'
-import Storyblok from '../src/lib/storyblok'
+import { Stories } from '../src/interfaces/IStoryblok'
+import { getAllPostsWithSlug } from '../src/lib/api'
 
 const Home = ({ data }: Stories) => {
   return (
@@ -21,14 +21,7 @@ const Home = ({ data }: Stories) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const slug: string = 'blogs/'
-
-  const config: Params = {
-    token: process.env.STORYBLOK_TOKEN,
-    starts_with: slug,
-  }
-
-  const { data } = await Storyblok.get(`cdn/stories/`, config)
+  const data = await getAllPostsWithSlug()
 
   return {
     props: {

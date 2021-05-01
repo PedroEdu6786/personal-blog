@@ -1,8 +1,8 @@
 import MetaHead from '../../src/components/organisms/Shared/MetaHead'
 import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
-import Storyblok from '../../src/lib/storyblok'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { getAllPostsWithSlug, getPostByUuid } from '../../src/lib/api'
 
 const BlogPost = ({ selectedPost }) => {
   return (
@@ -19,11 +19,7 @@ const BlogPost = ({ selectedPost }) => {
 export default BlogPost
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slug: string = 'blogs/'
-  const { data } = await Storyblok.get(`cdn/stories/`, {
-    starts_with: slug,
-  })
-
+  const data = await getAllPostsWithSlug()
   const posts = data.stories
 
   const paths = posts.map((post) => ({
@@ -34,15 +30,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { blogId } = params
-
-  const { data } = await Storyblok.get(`cdn/stories/${blogId}`, {
-    find_by: 'uuid',
-  })
-
-  const selectedPost = data.story
+  const data = await getPostByUuid(params.blogId)
 
   return {
-    props: { selectedPost },
+    props: { selectedPost: data.story },
   }
 }
