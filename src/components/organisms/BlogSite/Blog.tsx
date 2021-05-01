@@ -5,6 +5,7 @@ import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import ReadTime from '../../atoms/Shared/ReadTime'
 import Storyblok from '../../../lib/storyblok'
+import PostContent from '../../molecules/BlogSite/PostContent'
 
 const Blog = ({ content, published_at: date }) => {
   const { description, read_time, title, image, bio } = content
@@ -36,10 +37,10 @@ const Blog = ({ content, published_at: date }) => {
           />
         </Box>
       </Stack>
-      <PostDescription fontSize={{ md: '1.25rem' }} fontWeight="semibold">
+      <PostDescription as="i" fontSize={{ md: '1.25rem' }}>
         {description}
       </PostDescription>
-      <Box mt="3rem" dangerouslySetInnerHTML={{ __html: long_text }} />s
+      <PostContent mt="3rem" dangerouslySetInnerHTML={{ __html: long_text }} />
     </Box>
   )
 }

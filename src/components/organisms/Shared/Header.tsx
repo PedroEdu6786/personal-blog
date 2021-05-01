@@ -11,7 +11,7 @@ const Header = () => {
       zIndex="10"
       h={{ base: '5rem', md: '5.5rem' }}
       w="100%"
-      bgColor="portfolio.gray"
+      bgColor="portfolio.white"
     >
       <HStack
         m="auto"

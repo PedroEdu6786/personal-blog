@@ -16,6 +16,7 @@ const MainPost = ({ uuid: blogId, content, published_at: date }) => {
       m="auto"
       spacing={{ base: '1rem', lg: '1.75rem' }}
       direction={{ base: 'column', lg: 'row' }}
+      align={{ lg: 'center' }}
     >
       {/* ---------------- POST IMAGE ---------------- */}
 
