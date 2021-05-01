@@ -10,6 +10,7 @@ const BlogPost = ({ selectedPost }) => {
       <MetaHead
         pageTitle={selectedPost.content.title}
         description={selectedPost.content.description}
+        image={selectedPost.content.image}
       />
       <Blog {...selectedPost} />
     </BlogTemplate>
