@@ -2,6 +2,7 @@ import MetaHead from '../../src/components/organisms/Shared/MetaHead'
 import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
 import Storyblok from '../../src/lib/storyblok'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 const BlogPost = ({ selectedPost }) => {
   return (
@@ -17,8 +18,8 @@ const BlogPost = ({ selectedPost }) => {
 
 export default BlogPost
 
-export async function getStaticPaths() {
-  const slug = 'blogs/'
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slug: string = 'blogs/'
   const { data } = await Storyblok.get(`cdn/stories/`, {
     starts_with: slug,
   })
@@ -32,7 +33,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { blogId } = params
 
   const { data } = await Storyblok.get(`cdn/stories/${blogId}`, {

@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { Box } from '@chakra-ui/layout'
+import { SEO } from '../../../interfaces/Seo'
 
-const MetaHead = ({ pageTitle, description }) => {
+const MetaHead = ({ pageTitle, description }: SEO) => {
   return (
     <Box>
       <Head>
