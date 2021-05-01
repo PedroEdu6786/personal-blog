@@ -3,7 +3,7 @@ import Emoji from '../../atoms/HomePage/Emoji'
 
 const Footer = () => {
   return (
-    <Box id="footer" as="footer" w="100%" pt="5rem">
+    <Box id="footer" as="footer" w="100%" pt="5rem" pos="absolute" bottom="0">
       <HStack
         w="100%"
         p="2rem"
