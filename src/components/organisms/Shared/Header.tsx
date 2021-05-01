@@ -21,7 +21,7 @@ const Header = () => {
         p="2rem"
       >
         {/* ---------------- LOGO ---------------- */}
-        <LinkR href="/">
+        <LinkR href="/" decoration="none">
           <HStack align="center">
             <Emoji symbol="👋🏻" />
             <Heading as="h3" fontSize={{ base: '1rem', md: '1.25rem' }}>

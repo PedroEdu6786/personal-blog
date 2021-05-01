@@ -1,3 +1,4 @@
+import MetaHead from '../../src/components/organisms/Shared/MetaHead'
 import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
 import Storyblok from '../../src/lib/storyblok'
@@ -5,6 +6,10 @@ import Storyblok from '../../src/lib/storyblok'
 const BlogPost = ({ selectedPost }) => {
   return (
     <BlogTemplate>
+      <MetaHead
+        pageTitle={selectedPost.content.title}
+        description={selectedPost.content.description}
+      />
       <Blog {...selectedPost} />
     </BlogTemplate>
   )

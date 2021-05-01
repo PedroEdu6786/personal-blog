@@ -35,26 +35,22 @@ const Post = ({ uuid: blogId, content, published_at: date }) => {
 
       {/* ---------------- POST INFO ---------------- */}
       <Stack spacing={{ base: '.2rem', lg: '.5rem' }} maxW="20rem">
-        <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <PublishDate fontSize={{ base: '.9rem', md: '1.125rem' }}>
-            {date}
-          </PublishDate>
-        </LinkR>
+        <PublishDate fontSize={{ base: '.9rem', md: '1.125rem' }}>
+          {date}
+        </PublishDate>
         <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
           <PostTitle fontSize={{ base: '1.15rem', md: '1.5rem' }}>
             {title}
           </PostTitle>
         </LinkR>
-        <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
-          <HStack
-            color="portfolio.darkGray"
-            fontWeight="semibold"
-            fontSize={{ base: '.9rem', md: '1.125rem' }}
-          >
-            <Icon as={FiClock} />
-            <Text>{read_time} min read</Text>
-          </HStack>
-        </LinkR>
+        <HStack
+          color="portfolio.darkGray"
+          fontWeight="semibold"
+          fontSize={{ base: '.9rem', md: '1.125rem' }}
+        >
+          <Icon as={FiClock} />
+          <Text>{read_time} min read</Text>
+        </HStack>
       </Stack>
     </Stack>
   )
