@@ -12,6 +12,7 @@ export const getAllPostsWithSlug = async () => {
     version: 'published',
     starts_with: slug,
     sort_by: 'published_at:desc',
+    cv: Date.now(),
   }
 
   const { data } = await Storyblok.get(URL, config)

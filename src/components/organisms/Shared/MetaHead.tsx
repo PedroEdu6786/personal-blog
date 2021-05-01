@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Box } from '@chakra-ui/layout'
 import { SEO } from '../../../interfaces/Seo'
 
-const MetaHead = ({ pageTitle, description }: SEO) => {
+const MetaHead = ({ pageTitle, description, image }: SEO) => {
   return (
     <Box>
       <Head>
@@ -20,18 +20,13 @@ const MetaHead = ({ pageTitle, description }: SEO) => {
           content={description}
           key="description"
         />
-        {/* <meta
-          property="og:image"
-          content="{{course.attributes.image-info.fbshare.url}}"
-        />
-        <meta
-          property="og:image:width"
-          content="{{course.attributes.image-info.fbshare.width}}"
-        />
-        <meta
-          property="og:image:height"
-          content="{{course.attributes.image-info.fbshare.height}}"
-        /> */}
+        {image && (
+          <>
+            <meta property="og:image" content={image} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="360" />
+          </>
+        )}
       </Head>
     </Box>
   )
