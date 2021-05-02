@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import PostSection from '../src/components/organisms/HomePage/PostSection'
 import MetaHead from '../src/components/organisms/Shared/MetaHead'
 import BlogTemplate from '../src/components/templates/BlogTemplate'
@@ -20,12 +20,13 @@ const Home = ({ data }: Stories) => {
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await getAllPostsWithSlug()
 
   return {
     props: {
       data: data ? data : [],
     },
+    revalidate: 5,
   }
 }

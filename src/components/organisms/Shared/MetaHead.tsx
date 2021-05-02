@@ -23,8 +23,8 @@ const MetaHead = ({ pageTitle, description, image }: SEO) => {
         {image && (
           <>
             <meta property="og:image" content={image} />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="360" />
+            <meta property="og:image:width" content="720" />
+            <meta property="og:image:height" content="400" />
           </>
         )}
       </Head>
