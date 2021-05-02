@@ -1,7 +1,7 @@
 import MetaHead from '../../src/components/organisms/Shared/MetaHead'
 import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticPaths } from 'next'
 import { getAllPostsWithSlug, getPostByUuid } from '../../src/lib/api'
 
 const BlogPost = ({ selectedPost }) => {
@@ -30,11 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const data = await getPostByUuid(params.blogId)
 
   return {
     props: { selectedPost: data.story },
-    revalidate: 5,
   }
 }
