@@ -20,13 +20,12 @@ const Home = ({ data }: Stories) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await getAllPostsWithSlug()
 
   return {
     props: {
       data: data ? data : [],
     },
-    revalidate: 5,
   }
 }

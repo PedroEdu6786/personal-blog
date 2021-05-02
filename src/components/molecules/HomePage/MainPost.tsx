@@ -39,7 +39,7 @@ const MainPost = ({ uuid: blogId, content, published_at: date }) => {
       {/* ---------------- POST INFO ---------------- */}
       <Stack
         spacing={{ base: '.5rem', lg: '1rem' }}
-        fontSize={{ md: '1.25rem', lg: '1.5rem' }}
+        fontSize={{ md: '1.25rem' }}
         justify="space-between"
       >
         <PublishDate>{date}</PublishDate>
@@ -49,11 +49,7 @@ const MainPost = ({ uuid: blogId, content, published_at: date }) => {
           </PostTitle>
         </LinkR>
         <PostDescription>{description}</PostDescription>
-        <HStack
-          color="portfolio.darkGray"
-          fontWeight="semibold"
-          fontSize={{ md: '1.15rem' }}
-        >
+        <HStack color="portfolio.darkGray" fontSize="1rem">
           <LinkR href="/blogs/[blogId]" as={`/blogs/${blogId}`}>
             <Text>Read more</Text>
           </LinkR>

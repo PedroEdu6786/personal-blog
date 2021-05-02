@@ -5,6 +5,7 @@ import PublishDate from '../../atoms/HomePage/PublishDate'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import LinkR from '../../atoms/Shared/LinkR'
+import ReadTime from '../../atoms/Shared/ReadTime'
 
 const Post = ({ uuid: blogId, content, published_at: date }) => {
   const { read_time, title, image } = content
@@ -43,14 +44,8 @@ const Post = ({ uuid: blogId, content, published_at: date }) => {
             {title}
           </PostTitle>
         </LinkR>
-        <HStack
-          color="portfolio.darkGray"
-          fontWeight="semibold"
-          fontSize={{ base: '.9rem', md: '1.125rem' }}
-        >
-          <Icon as={FiClock} />
-          <Text>{read_time} min read</Text>
-        </HStack>
+
+        <ReadTime readingTime={read_time} />
       </Stack>
     </Stack>
   )

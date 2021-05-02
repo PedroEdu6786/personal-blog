@@ -4,8 +4,8 @@ import { FiClock } from 'react-icons/fi'
 
 const ReadTime = ({ readingTime }) => {
   return (
-    <HStack align="center" color="portfolio.darkGray" fontWeight="semibold">
-      <Icon as={FiClock} fontSize={{ base: '1.25rem', md: '1.5rem' }} />
+    <HStack align="center" color="portfolio.darkGray">
+      <Icon as={FiClock} />
       <Text>{readingTime} min read</Text>
     </HStack>
   )
