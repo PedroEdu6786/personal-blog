@@ -20,7 +20,9 @@ const BlogPost = ({ selectedPost }) => {
 export default BlogPost
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await getAllPostsWithSlug()
+  const slug: string = 'blogs/'
+
+  const data = await getAllPostsWithSlug(slug)
   const posts = data.stories
 
   const paths = posts.map((post) => ({
@@ -30,8 +32,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const data = await getPostByUuid(params.blogId)
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = null,
+}) => {
+  const blogId: string = params.blogId.toString()
+  const data = await getPostByUuid(blogId)
 
   return {
     props: { selectedPost: data.story },

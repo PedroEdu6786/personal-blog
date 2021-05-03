@@ -20,8 +20,10 @@ const Home = ({ data }: Stories) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
-  const data = await getAllPostsWithSlug()
+export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
+  const slug: string = 'blogs/'
+
+  const data = await getAllPostsWithSlug(slug)
 
   return {
     props: {
