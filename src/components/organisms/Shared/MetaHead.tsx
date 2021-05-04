@@ -18,7 +18,7 @@ const MetaHead = ({ pageTitle, description, image }: SEO) => {
         <meta
           property="og:description"
           content={description}
-          key="description"
+          key="description_og"
         />
         {image && (
           <>
