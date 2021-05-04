@@ -26,7 +26,7 @@ const Header = () => {
             <Emoji symbol="👋🏻" />
             <Heading
               as="h3"
-              fontSize={{ base: '.85rem', sm: '1rem', md: '1.25rem' }}
+              fontSize={{ base: '.9rem', sm: '1rem', md: '1.25rem' }}
             >
               Pedro Cruz
             </Heading>
@@ -39,7 +39,7 @@ const Header = () => {
           fontWeight="bold"
           w={{ sm: '10rem', md: '12rem' }}
           justify="space-between"
-          fontSize={{ base: '.85rem', sm: '1rem', md: '1.25rem' }}
+          fontSize={{ base: '.9rem', sm: '1rem', md: '1.25rem' }}
         >
           <LinkR href="/">
             <Text>Home</Text>
