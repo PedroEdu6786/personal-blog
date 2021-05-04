@@ -42,10 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: true }
 }
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = null,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const blogId: string = params.blogId.toString()
   const data = await getPostByUuid(blogId)
 

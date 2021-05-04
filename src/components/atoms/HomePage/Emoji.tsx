@@ -1,12 +1,9 @@
-import { Heading } from '@chakra-ui/react'
-import { handMotion } from '../../../motion/motionVariants'
-import { MotionBox } from '../../../motion/motionComponents'
+import { Box, Heading } from '@chakra-ui/react'
 
 const Emoji = ({ label = '', symbol, ...rest }) => {
   return (
-    <MotionBox
+    <Box
       as="span"
-      variants={handMotion}
       aria-label={label ? label : ''}
       aria-hidden={label ? 'false' : 'true'}
       {...rest}
@@ -14,7 +11,7 @@ const Emoji = ({ label = '', symbol, ...rest }) => {
       <Heading as="h3" size="md">
         {symbol}
       </Heading>
-    </MotionBox>
+    </Box>
   )
 }
 
