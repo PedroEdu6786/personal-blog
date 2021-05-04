@@ -29,6 +29,6 @@ export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
     props: {
       data: data ? data : [],
     },
-    revalidate: 5,
+    revalidate: 60,
   }
 }

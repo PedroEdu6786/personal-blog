@@ -4,9 +4,12 @@ import Storyblok from './storyblok'
 const URL: string = 'cdn/stories/'
 
 const fetchApi = async (slug, config) => {
-  const { data } = await Storyblok.get(slug, config)
-
-  return data
+  try {
+    const { data } = await Storyblok.get(slug, config)
+    return data
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 // function that retreives all stories from a the folder blogs/ in storyblok

@@ -3,16 +3,26 @@ import Blog from '../../src/components/organisms/BlogSite/Blog'
 import BlogTemplate from '../../src/components/templates/BlogTemplate'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getAllPostsWithSlug, getPostByUuid } from '../../src/lib/api'
+import { useRouter } from 'next/dist/client/router'
+import { Heading } from '@chakra-ui/layout'
 
 const BlogPost = ({ selectedPost }) => {
+  const router = useRouter()
+
   return (
     <BlogTemplate>
-      <MetaHead
-        pageTitle={selectedPost.content.title}
-        description={selectedPost.content.description}
-        image={selectedPost.content.image}
-      />
-      <Blog {...selectedPost} />
+      {router.isFallback ? (
+        <Heading>Loading...</Heading>
+      ) : (
+        <>
+          <MetaHead
+            pageTitle={selectedPost.content.title}
+            description={selectedPost.content.description}
+            image={selectedPost.content.image}
+          />
+          <Blog {...selectedPost} />
+        </>
+      )}
     </BlogTemplate>
   )
 }
@@ -29,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { blogId: post.uuid.toString() },
   }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: true }
 }
 
 export const getStaticProps: GetStaticProps = async ({
@@ -39,8 +49,14 @@ export const getStaticProps: GetStaticProps = async ({
   const blogId: string = params.blogId.toString()
   const data = await getPostByUuid(blogId)
 
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: { selectedPost: data.story },
-    revalidate: 5,
+    revalidate: 60,
   }
 }
