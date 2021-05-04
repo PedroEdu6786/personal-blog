@@ -49,6 +49,8 @@ const PostContent = styled(Box)`
   ul,
   ol {
     margin-left: 1rem;
+    margin-bottom: 2.5rem;
+
     li {
       p {
         margin: 0;

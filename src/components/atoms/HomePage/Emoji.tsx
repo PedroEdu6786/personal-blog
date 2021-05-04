@@ -8,7 +8,7 @@ const Emoji = ({ label = '', symbol, ...rest }) => {
       aria-hidden={label ? 'false' : 'true'}
       {...rest}
     >
-      <Heading as="h3" size="md">
+      <Heading as="h3" fontSize={{ base: '.9rem', md: '1.25rem' }}>
         {symbol}
       </Heading>
     </Box>

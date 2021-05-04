@@ -10,7 +10,7 @@ const Home = ({ data }: Stories) => {
     <BlogTemplate>
       <MetaHead
         pageTitle="Pedro's Blog | Developer Personal Blog"
-        description="Personal blog website focused on technology content, mainly programming languages, front-end frameworks, full-stack technologies and different techniques to keep your code clean"
+        description="Hi! come on, have fun and learn a few thing on my developer's personal blog 💻✨"
       />
       {/* ---------------- POSTS ---------------- */}
       <PostSection data={data.stories} />

@@ -22,9 +22,12 @@ const Header = () => {
       >
         {/* ---------------- LOGO ---------------- */}
         <LinkR href="/" decoration="none">
-          <HStack align="center">
+          <HStack align="center" spacing={{ base: '.3rem', md: '.5rem' }}>
             <Emoji symbol="👋🏻" />
-            <Heading as="h3" fontSize={{ base: '1rem', md: '1.25rem' }}>
+            <Heading
+              as="h3"
+              fontSize={{ base: '.85rem', sm: '1rem', md: '1.25rem' }}
+            >
               Pedro Cruz
             </Heading>
           </HStack>
@@ -34,15 +37,15 @@ const Header = () => {
         <HStack
           as="nav"
           fontWeight="bold"
-          w={{ sm: '12rem', md: '15rem' }}
+          w={{ sm: '10rem', md: '12rem' }}
           justify="space-between"
-          fontSize={{ base: '1rem', md: '1.25rem' }}
+          fontSize={{ base: '.85rem', sm: '1rem', md: '1.25rem' }}
         >
           <LinkR href="/">
             <Text>Home</Text>
           </LinkR>
           <Link href="https://pcruz.vercel.app/">
-            <Text>My Portfolio</Text>
+            <Text>Portfolio</Text>
           </Link>
         </HStack>
       </HStack>
