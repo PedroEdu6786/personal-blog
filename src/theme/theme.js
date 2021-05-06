@@ -4,6 +4,10 @@ import { colors } from './foundations/colors'
 import { fonts } from './foundations/fonts'
 
 const theme = {
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   styles,
   colors,
   fonts,

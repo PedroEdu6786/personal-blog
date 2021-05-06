@@ -1,8 +1,10 @@
+import { mode } from '@chakra-ui/theme-tools'
+
 export const styles = {
-  global: () => ({
+  global: (props) => ({
     body: {
-      color: 'portfolio.black',
-      bg: 'portfolio.white',
+      color: mode('portfolio.black', 'portfolio.white')(props),
+      bg: mode('portfolio.white', 'portfolio.darkBg')(props),
     },
   }),
 }

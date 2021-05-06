@@ -9,5 +9,6 @@ export const colors = {
     darkBlue: '#3762FC',
     lightPrimary: '#E0EAF8',
     lightBlue: '#849CF4',
+    darkBg: '#1A202C',
   },
 }
