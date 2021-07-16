@@ -2,6 +2,10 @@ import { Box } from '@chakra-ui/layout'
 import styled from '@emotion/styled'
 
 const PostContent = styled(Box)`
+  * {
+    line-height: 2rem;
+  }
+
   h1,
   h2,
   h3 {

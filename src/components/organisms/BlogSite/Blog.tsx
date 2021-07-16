@@ -1,6 +1,5 @@
 import { Box, HStack, Stack } from '@chakra-ui/layout'
 import PublishDate from '../../atoms/HomePage/PublishDate'
-import PostDescription from '../../atoms/HomePage/PostDescription'
 import PostImage from '../../atoms/HomePage/PostImage'
 import PostTitle from '../../atoms/Shared/PostTitle'
 import ReadTime from '../../atoms/Shared/ReadTime'
@@ -8,7 +7,7 @@ import Storyblok from '../../../lib/storyblok'
 import PostContent from '../../molecules/BlogSite/PostContent'
 
 const Blog = ({ content, published_at: date }) => {
-  const { description, read_time, title, image, bio } = content
+  const { read_time, title, image, bio } = content
 
   const SRC = `http:${image}`
 
@@ -37,9 +36,6 @@ const Blog = ({ content, published_at: date }) => {
           />
         </Box>
       </Stack>
-      <PostDescription as="i" fontSize={{ md: '1.25rem' }}>
-        {description}
-      </PostDescription>
       <PostContent mt="3rem" dangerouslySetInnerHTML={{ __html: long_text }} />
     </Box>
   )
